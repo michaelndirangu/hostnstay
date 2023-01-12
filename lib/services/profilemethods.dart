@@ -1,0 +1,3 @@
+class ProfileMethods{
+  void paymentpage(){}
+}

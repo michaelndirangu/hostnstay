@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "498490536049",
+    "project_id": "host-and-stay-2070c",
+    "storage_bucket": "host-and-stay-2070c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498490536049:android:e2b531587b7ffbb0956bd0",
+        "android_client_info": {
+          "package_name": "com.example.hostnstay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498490536049-5vt2fd9aa5in4atsigdsa96q1car0dbf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfQb2rVBDOpuIV-vIGbUUPfWVfo_RiOys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498490536049-5vt2fd9aa5in4atsigdsa96q1car0dbf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
