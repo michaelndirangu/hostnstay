@@ -6,15 +6,12 @@ import 'dart:async';
 // ignore: import_of_legacy_library_into_null_safe
 // import 'package:carousel_pro/carousel_pro.dart';
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:carousel_pro/carousel_pro.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:hostnstay/data/userdata/hostmodel.dart';
 import 'package:hostnstay/data/userdata/ownercontact.dart';
-import 'package:hostnstay/data/userdata/usermodel.dart';
 import 'package:timeago/timeago.dart' as timeago;
 // import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 // import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -26,6 +23,8 @@ import 'package:hostnstay/utils/showsnackbar.dart';
 import 'package:hostnstay/widgets/largetext.dart';
 import 'package:hostnstay/widgets/smalltext.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../widgets/carousel_widget.dart';
 
 class DetailsPage extends StatefulWidget {
   final DocumentSnapshot propertyDetails;
@@ -160,7 +159,9 @@ class _DetailsPageState extends State<DetailsPage> {
     for (int i = 0; i < imageURLs.length; i++) {
       images.add(NetworkImage(imageURLs[i]));
     }
-    print(imageslist);
+    if (kDebugMode) {
+      print(imageslist);
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.propertyDetails.get('title')),
@@ -210,20 +211,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   decoration: const BoxDecoration(
                     color: Colors.transparent,
                   ),
-                  child: Carousel(
-                    images: imageslist,
-                    dotSpacing: 15,
-                    boxFit: BoxFit.cover,
-                    dotSize: 4,
-                    autoplayDuration: const Duration(seconds: 4),
-                    dotBgColor: Colors.transparent,
-                    dotColor: Colors.blue,
-                    dotVerticalPadding: 5,
-                    indicatorBgPadding: 5,
-                    defaultImage: const AssetImage("img/thumbnail.png"),
-                    borderRadius: false,
-                    // radius: const Radius.circular(12),
-                  ),
+                  child: Carousel(images: images), // Remove border, make border optional.
                 ),
               ],
             ),
@@ -489,10 +477,10 @@ class _DetailsPageState extends State<DetailsPage> {
                     .snapshots(),
                 builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return SizedBox(
+                    return const SizedBox(
                       height: 150,
                       child: Column(
-                        children: const [
+                        children: [
                           Card(
                             elevation: 1.0,
                           )

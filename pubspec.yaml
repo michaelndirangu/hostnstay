@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: '>=3.3.4 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -36,43 +36,45 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  flutter_google_location_picker: ^0.0.3
-  location_picker_flutter_map: ^1.0.3
-  firebase_database: ^9.1.3
-  firebase_auth: ^3.4.2
-  firebase_core: ^1.20.0
-  cloud_firestore: ^3.4.3
-  cloud_firestore_web: ^2.8.3
-  firebase_storage: ^10.3.5
+  # flutter_google_location_picker: ^0.0.3
+  location_picker_flutter_map: ^3.0.0
+  firebase_database: ^11.3.1
+  firebase_auth: ^5.4.2
+  firebase_core: ^3.10.1
+  cloud_firestore: ^5.6.3
+  cloud_firestore_web: ^4.4.4
+  firebase_storage: ^12.4.1
   flutter_launcher_icons: ^0.10.0
-  google_fonts: ^3.0.1
+  google_fonts: ^6.2.0
   form_field_validator: ^1.1.0
   flutter_spinkit: ^5.1.0
   shimmer: ^2.0.0
   sign_button: ^2.0.2
   blurry: ^1.4.2
   fluttertoast: ^8.0.9
-  connectivity: ^3.0.6
   flutter_signin_button: ^2.0.0
   image_picker: ^0.8.6
   ndialog: ^4.2.0
   panara_dialogs: ^0.1.2
-  dropdown_formfield: ^0.1.4
-  carousel_pro: ^1.0.0
+  # dropdown_formfield: ^1.0.8
+  # carousel_pro: ^1.0.0
   google_maps_flutter: ^2.2.1
   another_stepper: ^1.0.4
-  geolocator: ^9.0.2
+  geolocator: 13.0.4
   im_stepper: ^1.0.1+1
-  stripe: ^4.7.0
-  mpesa_flutter_plugin: ^1.6.1
+  # stripe: ^4.7.0
+  mpesa_flutter_plugin:
+    git:
+      url: https://github.com/michaelndirangu/mpesa_flutter_plugin.git
+      ref: master
   quickalert: ^1.0.0
-  flutter_sms: ^2.3.3
-  flutter_email_sender: ^5.2.0
+  # flutter_sms: ^2.3.3
+  flutter_email_sender: ^6.0.3
   awesome_snackbar_content: ^0.1.0
   rating_dialog: ^2.0.4
   flutter_image_slideshow: ^0.1.4
   flutter_carousel_widget: ^1.2.3
-  carousel_slider: ^4.1.1
+  carousel_slider: ^5.0.0
   smooth_page_indicator: ^1.0.0+2
   async: ^2.9.0
   camera: ^0.10.0+4
@@ -81,8 +83,12 @@ dependencies:
   top_snackbar_flutter: ^3.0.0
   url_launcher: ^6.1.7
   geocoding: ^2.0.5
-  file_picker: ^5.2.3
+  file_picker: ^8.3.6
+  dropdown_textfield: ^1.2.0
 
+  path: any
+  path_provider: any
+  connectivity_plus: ^6.1.0
 flutter_icons: 
   android: true
   ios: true

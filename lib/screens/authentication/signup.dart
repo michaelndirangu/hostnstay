@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hostnstay/screens/authentication/login.dart';
 import 'package:hostnstay/screens/authentication/register.dart';

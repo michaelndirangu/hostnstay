@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -15,9 +15,6 @@ import 'package:hostnstay/utils/warningmsg.dart';
 import 'package:hostnstay/widgets/divider.dart';
 import 'package:hostnstay/widgets/loginnav.dart';
 import 'package:hostnstay/widgets/showprogress.dart';
-import 'package:hostnstay/widgets/socialbuttons.dart';
-import 'package:sign_button/sign_button.dart';
-
 import '../../widgets/inputfield.dart';
 
 class LoginPage extends StatefulWidget {
@@ -224,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: MediaQuery.of(context).size.width / 1.0,
                 padding: const EdgeInsets.only(left: 30, right: 30, bottom: 15),
-                child: Row(
+                child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       // otherSignUp(ButtonType.google, () {}),

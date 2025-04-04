@@ -194,7 +194,6 @@ class _PaymentState extends State<Payment> {
   @override
   Widget build(BuildContext context) {
     final String price = widget.price;
-    final String phon = widget.title;
     var myprice = double.parse(price);
     return Scaffold(
       backgroundColor: Colors.white,

@@ -12,7 +12,7 @@ Widget skelton(double width, [double? height]) {
           height: height,
           width: width,
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withValues(alpha: 0.04),
             borderRadius: const BorderRadius.all(Radius.circular(12)),
           ),
         ),
@@ -21,7 +21,7 @@ Widget skelton(double width, [double? height]) {
           height: 20,
           width: 100,
           decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               borderRadius: const BorderRadius.all(Radius.circular(12))),
             ),
         const SizedBox(height: 5),
@@ -32,7 +32,7 @@ Widget skelton(double width, [double? height]) {
               height: 20,
               width: 200,
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.04),
+                  color: Colors.black.withValues(alpha: 0.04),
                   borderRadius: const BorderRadius.all(Radius.circular(12))),
             ),
             const Spacer(),
@@ -44,7 +44,7 @@ Widget skelton(double width, [double? height]) {
                   height: 20,
                   width: 110,
                   decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.04),
+                      color: Colors.black.withValues(alpha: 0.04),
                       borderRadius:
                           const BorderRadius.all(Radius.circular(14))),
                 ),
@@ -59,7 +59,7 @@ Widget skelton(double width, [double? height]) {
           height: 20,
           width: 140,
           decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               borderRadius: const BorderRadius.all(Radius.circular(14))),
         ),
       ],

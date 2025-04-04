@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 showLoaderDialog(BuildContext context, String text) {
   AlertDialog alert = AlertDialog(
-    backgroundColor: Colors.black.withOpacity(0.7),
+    backgroundColor: Colors.black.withValues(alpha: 0.7),
     elevation: 4,
     content: Row(
       children: [

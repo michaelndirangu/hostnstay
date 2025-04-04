@@ -1,10 +1,11 @@
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hostnstay/screens/propertyDetails/details.dart';
 import 'package:hostnstay/widgets/largetext.dart';
 import 'package:hostnstay/widgets/skeleton.dart';
+
+import '../widgets/carousel_widget.dart';
 
 class SearchModal extends ModalRoute {
   TextEditingController searchCont = TextEditingController();
@@ -26,7 +27,7 @@ class SearchModal extends ModalRoute {
   bool get opaque => false;
   bool get barrierDismissable => false;
   @override
-  Color get barrierColor => Colors.black.withOpacity(0.6);
+  Color get barrierColor => Colors.black.withValues(alpha: 0.6);
   @override
   String? get barrierLabel => null;
   @override
@@ -191,21 +192,7 @@ class SearchModal extends ModalRoute {
                                             borderRadius:
                                                 BorderRadius.circular(14),
                                           ),
-                                          child: Carousel(
-                                            images: images,
-                                            dotSpacing: 15,
-                                            boxFit: BoxFit.cover,
-                                            dotSize: 4,
-                                            autoplay: false,
-                                            dotBgColor: Colors.transparent,
-                                            dotColor: Colors.blue,
-                                            dotVerticalPadding: 5,
-                                            indicatorBgPadding: 5,
-                                            defaultImage: const AssetImage(
-                                                "img/thumbnail.png"),
-                                            borderRadius: true,
-                                            radius: const Radius.circular(12),
-                                          ),
+                                          child: Carousel(images: images),
                                         ),
                                         const SizedBox(
                                           height: 5,

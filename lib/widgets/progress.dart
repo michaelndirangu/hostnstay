@@ -28,10 +28,10 @@ class Progress extends StatelessWidget {
                         ),
                     ],
             ),
-            Row(
+            const Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 30, right: 30),
                       child: SpinKitThreeBounce(

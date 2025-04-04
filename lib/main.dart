@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hostnstay/firebase_options.dart';
 import 'package:hostnstay/keys.dart';
-import 'package:hostnstay/screens/authentication/scan.dart';
 import 'package:hostnstay/screens/navpages/splashscreen.dart';
 import 'package:mpesa_flutter_plugin/initializer.dart';
 
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      darkTheme: ThemeData.dark(),
+      // darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
     );

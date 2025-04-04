@@ -1,20 +1,20 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:async/async.dart';
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:dropdown_formfield/dropdown_formfield.dart';
 import 'package:flutter/material.dart';
 import 'package:hostnstay/screens/navpages/findplace.dart';
 import 'package:hostnstay/screens/propertyDetails/details.dart';
 import 'package:hostnstay/utils/warningmsg.dart';
-import 'package:hostnstay/widgets/hmepageshimmer.dart';
 import 'package:hostnstay/widgets/largetext.dart';
 import 'package:hostnstay/widgets/searchinput.dart';
 import 'package:hostnstay/widgets/showprogress.dart';
 import 'dart:async';
 
 import 'package:hostnstay/widgets/skeleton.dart';
+
+import '../../widgets/carousel_widget.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -41,6 +41,8 @@ class _SearchPageState extends State<SearchPage> {
   late String rating;
   bool searching = false;
   late String minPrice;
+  late final SingleValueDropDownController catController =
+      SingleValueDropDownController();
   final CollectionReference collection =
       FirebaseFirestore.instance.collection('propertyDetails');
   late Stream<QuerySnapshot> searchresults;
@@ -248,10 +250,12 @@ class _SearchPageState extends State<SearchPage> {
                 //     }
                 //   }
                 // },
-                stream: firecollection.where("category", isEqualTo: category)
-                .where("price", isEqualTo: minCont.text)
-                .where("location", isEqualTo: locationCont.text)
-                .snapshots().asBroadcastStream(),
+                stream: firecollection
+                    .where("category", isEqualTo: category)
+                    .where("price", isEqualTo: minCont.text)
+                    .where("location", isEqualTo: locationCont.text)
+                    .snapshots()
+                    .asBroadcastStream(),
                 builder: (_, AsyncSnapshot<QuerySnapshot> snapshot) {
                   // propertyListings = snapshot.data!.docs;
                   if (snapshot.connectionState == ConnectionState.waiting) {
@@ -259,12 +263,11 @@ class _SearchPageState extends State<SearchPage> {
                       child: LargeText(size: 22, text: "😞 No Results Found."),
                     );
                   } else {
-                    if(
-                       snapshot.hasData == false
-                    ){
+                    if (snapshot.hasData == false) {
                       return Center(
-                      child: LargeText(size: 22, text: "😞 No Results Found."),
-                    );
+                        child:
+                            LargeText(size: 22, text: "😞 No Results Found."),
+                      );
                     } else {
                       return ListView(
                         children: [
@@ -285,8 +288,8 @@ class _SearchPageState extends State<SearchPage> {
                             }
 
                             return Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 19, right: 19, top: 7),
+                              padding: const EdgeInsets.only(
+                                  left: 19, right: 19, top: 7),
                               child: GestureDetector(
                                 onTap: () => navigateToDetails(document),
                                 child: Container(
@@ -299,36 +302,27 @@ class _SearchPageState extends State<SearchPage> {
                                       borderRadius: BorderRadius.circular(15)),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        height: 120,
-                                        width:
-                                            MediaQuery.of(context).size.width / 0.9,
-                                        decoration: BoxDecoration(
-                                          color: Colors.transparent,
-                                          borderRadius: BorderRadius.circular(14),
-                                        ),
-                                        child: Carousel(
-                                          images: images,
-                                          dotSpacing: 15,
-                                          boxFit: BoxFit.cover,
-                                          dotSize: 4,
-                                          autoplay: false,
-                                          dotBgColor: Colors.transparent,
-                                          dotColor: Colors.blue,
-                                          dotVerticalPadding: 5,
-                                          indicatorBgPadding: 5,
-                                          defaultImage:
-                                              const AssetImage("img/thumbnail.png"),
-                                          borderRadius: true,
-                                          radius: const Radius.circular(12),
-                                        ),
-                                      ),
+                                          height: 120,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              0.9,
+                                          decoration: BoxDecoration(
+                                            color: Colors.transparent,
+                                            borderRadius:
+                                                BorderRadius.circular(14),
+                                          ),
+                                          child: Carousel(
+                                              images: images)),
                                       const SizedBox(
                                         height: 5,
                                       ),
-                                      smallDetails(title, rating, location, price),
+                                      smallDetails(
+                                          title, rating, location, price),
                                       const SizedBox(
                                         height: 3,
                                       )
@@ -338,12 +332,11 @@ class _SearchPageState extends State<SearchPage> {
                               ),
                             );
                           })
-                    ],
-                    );
+                        ],
+                      );
                     }
                   }
-                }
-              )
+                })
             : SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20),
@@ -397,26 +390,41 @@ class _SearchPageState extends State<SearchPage> {
                       const SizedBox(
                         height: 4,
                       ),
-                      DropDownFormField(
-                        titleText: 'Category',
-                        hintText: 'Select a Category',
-                        value: category,
-                        autovalidate: AutovalidateMode.always,
-                        filled: true,
-                        onChanged: (value) {
-                          setState(() {
-                            category = value;
-                          });
-                        },
-                        dataSource: const [
-                          {"display": "modernhomes", "value": "modernhomes"},
-                          {"display": "apartments", "value": "apartments"},
-                          {"display": "villas", "value": "villas"},
-                          {"display": "rooms", "value": "rooms"},
-                          {"display": "homes", "value": "homes"},
-                        ],
-                        textField: 'value',
-                        valueField: 'value',
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 20, right: 20, bottom: 8),
+                        child: DropDownTextField(
+                          controller: catController,
+                          clearOption: false,
+                          enableSearch: false,
+                          dropDownItemCount: 5,
+                          textFieldDecoration: const InputDecoration(
+                            labelText: 'Category',
+                            hintText: 'Select a Category',
+                            border: OutlineInputBorder(),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please select a category";
+                            }
+                            return null;
+                          },
+                          dropDownList: const [
+                            DropDownValueModel(
+                                name: "modernhomes", value: "modernhomes"),
+                            DropDownValueModel(
+                                name: "apartments", value: "apartments"),
+                            DropDownValueModel(name: "villas", value: "villas"),
+                            DropDownValueModel(name: "rooms", value: "rooms"),
+                            DropDownValueModel(name: "homes", value: "homes"),
+                          ],
+                          onChanged: (val) {
+                            setState(() {
+                              category =
+                                  val?.value; // val is DropDownValueModel?
+                            });
+                          },
+                        ),
                       ),
                       const SizedBox(
                         height: 4,

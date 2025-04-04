@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hostnstay/screens/navpages/bookings.dart';
-import 'package:hostnstay/screens/navpages/findplace.dart';
 import 'package:hostnstay/screens/navpages/profile.dart';
 import 'package:hostnstay/screens/mainpages/cattabs.dart';
 import 'package:hostnstay/screens/navpages/recommended.dart';

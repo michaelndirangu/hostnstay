@@ -4,7 +4,6 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hostnstay/screens/navpages/profile.dart';
-import 'package:hostnstay/utils/successmsg.dart';
 import 'package:hostnstay/utils/take_picture_page.dart';
 import 'package:image_picker/image_picker.dart';
 

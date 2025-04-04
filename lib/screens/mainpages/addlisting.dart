@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:connectivity/connectivity.dart';
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:dropdown_formfield/dropdown_formfield.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -39,6 +39,7 @@ class _AddListingState extends State<AddListing> {
   late final TextEditingController locController;
   late final TextEditingController descController;
   late final TextEditingController priceController;
+  late final SingleValueDropDownController catController = SingleValueDropDownController();
 
   @override
   void initState() {
@@ -108,7 +109,8 @@ class _AddListingState extends State<AddListing> {
           },
         ),
         backgroundColor: const Color.fromARGB(255, 122, 221, 235),
-        systemOverlayStyle: const SystemUiOverlayStyle(statusBarColor: Colors.cyan),
+        systemOverlayStyle:
+            const SystemUiOverlayStyle(statusBarColor: Colors.cyan),
         title: LargeText(size: 24, text: 'Add Listing Details'),
         centerTitle: true,
         elevation: 3,
@@ -135,27 +137,39 @@ class _AddListingState extends State<AddListing> {
                     height: 3,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20, bottom: 8),
-                    child: DropDownFormField(
-                      titleText: 'Category',
-                      hintText: 'Select a Category',
-                      value: mycategory,
-                      autovalidate: AutovalidateMode.always,
-                      filled: true,
-                      onChanged: (value) {
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, bottom: 8),
+                    child: DropDownTextField(
+                      controller: catController,
+                      clearOption: false,
+                      enableSearch: false,
+                      dropDownItemCount: 5,
+                      textFieldDecoration: const InputDecoration(
+                        filled: true,
+                        labelText: 'Category',
+                        hintText: 'Select a Category',
+                        border: OutlineInputBorder(),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return "Please select a category";
+                        }
+                        return null;
+                      },
+                      dropDownList: const [
+                        DropDownValueModel(
+                            name: "modernhomes", value: "modernhomes"),
+                        DropDownValueModel(
+                            name: "apartments", value: "apartments"),
+                        DropDownValueModel(name: "villas", value: "villas"),
+                        DropDownValueModel(name: "rooms", value: "rooms"),
+                        DropDownValueModel(name: "homes", value: "homes"),
+                      ],
+                      onChanged: (val) {
                         setState(() {
-                          mycategory = value;
+                          mycategory = val?.value; // val is DropDownValueModel?
                         });
                       },
-                      dataSource: const [
-                        {"display": "modernhomes", "value": "modernhomes"},
-                        {"display": "apartments", "value": "apartments"},
-                        {"display": "villas", "value": "villas"},
-                        {"display": "rooms", "value": "rooms"},
-                        {"display": "homes", "value": "homes"},
-                      ],
-                      textField: 'value',
-                      valueField: 'value',
                     ),
                   ),
                   const SizedBox(

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hostnstay/data/userdata/hostmodel.dart';
-import 'package:hostnstay/data/userdata/usermodel.dart';
 import 'package:hostnstay/widgets/hmepageshimmer.dart';
 import 'package:hostnstay/widgets/largetext.dart';
 import 'package:hostnstay/widgets/smalltext.dart';

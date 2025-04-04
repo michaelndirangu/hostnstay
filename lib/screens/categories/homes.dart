@@ -2,13 +2,14 @@
 import 'dart:async';
 
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hostnstay/screens/propertyDetails/details.dart';
 import 'package:hostnstay/widgets/hmepageshimmer.dart';
 import 'package:hostnstay/widgets/skeleton.dart';
+
+import '../../widgets/carousel_widget.dart';
 
 class Homes extends StatefulWidget {
   const Homes({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _HomesState extends State<Homes> {
   User? user;
   bool isConnected = false;
   late StreamSubscription sub;
-  List imageURLs = [];
+  List<String> imageURLs = [];
   late String price;
   late String location;
   List<NetworkImage> images = <NetworkImage>[];
@@ -160,20 +161,7 @@ class _HomesState extends State<Homes> {
                                     borderRadius: BorderRadius.circular(14),
                                   ),
                                   child: Carousel(
-                                    images: images,
-                                    dotSpacing: 15,
-                                    boxFit: BoxFit.cover,
-                                    dotSize: 4,
-                                    autoplay: false,
-                                    dotBgColor: Colors.transparent,
-                                    dotColor: Colors.blue,
-                                    dotVerticalPadding: 5,
-                                    indicatorBgPadding: 5,
-                                    defaultImage:
-                                        const AssetImage("img/thumbnail.png"),
-                                    borderRadius: true,
-                                    radius: const Radius.circular(12),
-                                  ),
+                                      images: images),
                                 ),
                                 const SizedBox(
                                   height: 5,

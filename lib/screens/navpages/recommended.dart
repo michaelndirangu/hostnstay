@@ -2,13 +2,13 @@
 import 'dart:async';
 
 // ignore: import_of_legacy_library_into_null_safe
-import 'package:carousel_pro/carousel_pro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hostnstay/screens/propertyDetails/details.dart';
+import 'package:hostnstay/widgets/carousel_widget.dart';
 import 'package:hostnstay/widgets/largetext.dart';
 import 'package:hostnstay/widgets/skeleton.dart';
 
@@ -169,21 +169,7 @@ class _RecommendPageState extends State<RecommendPage> {
                                       color: Colors.transparent,
                                       borderRadius: BorderRadius.circular(14),
                                     ),
-                                    child: Carousel(
-                                      images: images,
-                                      dotSpacing: 15,
-                                      boxFit: BoxFit.cover,
-                                      dotSize: 4,
-                                      autoplay: false,
-                                      dotBgColor: Colors.transparent,
-                                      dotColor: Colors.blue,
-                                      dotVerticalPadding: 5,
-                                      indicatorBgPadding: 5,
-                                      defaultImage:
-                                          const AssetImage("img/thumbnail.png"),
-                                      borderRadius: true,
-                                      radius: const Radius.circular(12),
-                                    ),
+                                    child: Carousel(images: images),
                                   ),
                                   const SizedBox(
                                     height: 5,

@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import 'package:connectivity/connectivity.dart';
+// import 'package:connectivity/connectivity.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,8 @@ class _RegisterPageState extends State<RegisterPage> {
   bool isConnected = false;
   late StreamSubscription sub;
   bool? agree = false;
+  ConnectivityResult connectivityResult = ConnectivityResult.none;
+
 
   // FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 

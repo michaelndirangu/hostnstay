@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hostnstay/screens/authentication/register.dart';
-import 'package:hostnstay/screens/navpages/bottomnav.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MyWidget extends StatefulWidget {

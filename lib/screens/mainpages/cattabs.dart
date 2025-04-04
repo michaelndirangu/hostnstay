@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hostnstay/icons.dart';
 import 'package:hostnstay/screens/categories/apartments.dart';
 import 'package:hostnstay/screens/categories/explore.dart';
-import 'package:hostnstay/screens/categories/homes.dart';
 import 'package:hostnstay/screens/categories/rooms.dart';
 import 'package:hostnstay/screens/categories/villas.dart';
 
@@ -16,11 +15,11 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> with TickerProviderStateMixin {
-  late final tabController = TabController(length: 5, vsync: this);
+  late final tabController = TabController(length: 4, vsync: this);
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Text('Host and Stay',

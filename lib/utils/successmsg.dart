@@ -11,7 +11,7 @@ void showSuccessMsg(
       description: description,
       confirmButtonText: 'Okay',
       displayCancelButton: false,
-      barrierColor: Colors.white.withOpacity(0.7),
+      barrierColor: Colors.white.withValues(alpha: 0.7),
       onConfirmButtonPressed: () {
         Navigator.pop(context);
       }).show(context);      
