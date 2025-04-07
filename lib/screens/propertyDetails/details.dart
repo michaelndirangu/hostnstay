@@ -159,6 +159,8 @@ class _DetailsPageState extends State<DetailsPage> {
     for (int i = 0; i < imageURLs.length; i++) {
       images.add(NetworkImage(imageURLs[i]));
     }
+
+    print("images passed are ${images} and $imageURLs");
     if (kDebugMode) {
       print(imageslist);
     }
@@ -211,7 +213,7 @@ class _DetailsPageState extends State<DetailsPage> {
                   decoration: const BoxDecoration(
                     color: Colors.transparent,
                   ),
-                  child: Carousel(images: images), // Remove border, make border optional.
+                  child: Carousel(images: widget.imageList), // Remove border, make border optional.
                 ),
               ],
             ),

@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   User? user;
   bool isConnected = false;
   late StreamSubscription sub;
-  List<String> imageURLs = [];
+  List<dynamic> imageURLs = [];
   late String price;
   late String location;
   List<NetworkImage> images = <NetworkImage>[];
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                 return ListView(
                     children: snapshot.data!.docs.map((document) {
                       imageURLs = [];
-                      imageURLs = document.get('imageUrls') as List<String>;
+                      imageURLs = document.get('imageUrls');
                       price = document.get('price');
                       location = document.get('location');
                       title = document.get('title');
